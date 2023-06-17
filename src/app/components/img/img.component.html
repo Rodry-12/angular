@@ -1,0 +1,10 @@
+
+
+<img (load)="loadImage()" (error)="errorImege()" [src]="img" alt="image" *ngIf="img.length > 0; else imgelse">
+
+<ng-template #imgelse>
+  <img [src]="default" alt="Default">
+</ng-template>
+
+<!-- <h3>{{ counter }}</h3> -->
+

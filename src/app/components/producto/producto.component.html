@@ -1,0 +1,9 @@
+
+<app-img *ngIf="product.images.length > 0" [img]="product.images[0]"></app-img>
+<!-- <img width="200" [src]="product.image" alt=""> -->
+<h2>{{ product.price | currency }}</h2>
+<p appHiglight>{{ product.title | reverse }}</p>
+<p>{{ product.description }}</p>
+<p>{{ product.taxes }}</p>
+<button (click)="Agregar()">Add car</button>
+<button (click)="detailsProduct()">Detail</button>

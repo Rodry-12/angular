@@ -1,0 +1,28 @@
+
+<button (click)="createProduct()">Create</button>
+<button (click)="loadMore()">Load More</button>
+
+<p>La cantidad de producto es: {{ myShoppingCar.length }}</p>
+<p>El total es: ${{ total }}</p>
+<p>Today: {{ today | date }}</p>
+<p>Today: {{ date  | timeAgo }}</p>
+<div class="product--grid">
+  <app-producto (detailProduct)="showDetail($event)" (addProduct)="addProduct($event)" [product]="product" *ngFor="let product of products"></app-producto>
+</div>
+
+<div [class.active]="showProducDetaild" class="product-detail">
+  <div *ngIf="productDetail">
+    <button (click)="toggleProductDetail()">Close</button>
+    <h1>{{ productDetail.title }}</h1>
+    <swiper
+      [slidesPerView]="1"
+    >
+      <ng-template swiperSlide *ngFor="let img of productDetail.images">
+        <img [src]="img" alt="imagen">
+      </ng-template>
+    </swiper>
+    <p>{{ productDetail.description }}</p>
+    <button (click)="updateProduct()">Edit</button>
+    <button (click)="deleteProduct()">Delete</button>
+  </div>
+</div>
